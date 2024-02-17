@@ -17,77 +17,77 @@ const defaults = {
     type: 'number',
     min: 1,
     max: 100,
-    default: 10,
+    value: 10,
   },
   length: {
     type: 'number',
     min: 8,
     max: 128,
-    default: 12,
+    value: 12,
   },
   uppercases: {
     type: 'string',
     minLength: '1',
     maxLength: '260',
-    default: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+    value: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
   },
   uppercaseOccurrences: {
     type: 'number',
     min: 1,
     max: 2,
-    default: 1,
+    value: 1,
   },
   addUppercases: {
     type: 'boolean',
-    default: true,
+    value: true,
   },
   lowercases: {
     type: 'string',
     minLength: '1',
     maxLength: '260',
-    default: 'abcdefghijklmnopqrstuvwxyz',
+    value: 'abcdefghijklmnopqrstuvwxyz',
   },
   lowercaseOccurrences: {
     type: 'number',
     min: 1,
     max: 2,
-    default: 1,
+    value: 1,
   },
   addLowercases: {
     type: 'boolean',
-    default: true,
+    value: true,
   },
   digits: {
     type: 'string',
     minLength: '1',
     maxLength: '100',
-    default: '0123456789',
+    value: '0123456789',
   },
   digitOccurrences: {
     type: 'number',
     min: 1,
     max: 2,
-    default: 1,
+    value: 1,
   },
   addDigits: {
     type: 'boolean',
-    default: true,
+    value: true,
   },
   symbols: {
     type: 'string',
     minLength: '1',
     maxLength: '100',
-    default: '£$%&*§#@',
+    value: '£$%&*§#@',
   },
   symbolOccurrences: {
     type: 'number',
     min: 1,
     max: 2,
-    default: 1,
+    value: 1,
   },
   addSymbols: {
     type: 'boolean',
-    default: true,
+    value: true,
   },
 };
 
@@ -151,9 +151,7 @@ export const createPool = (charArrays) => {
       : [];
 
   let result = [];
-  result = shuffleArray(
-    result.concat(uCases, lCases, digits, symbols),
-  );
+  result = shuffleArray(result.concat(uCases, lCases, digits, symbols));
 
   return result;
 };
