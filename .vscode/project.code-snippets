@@ -1,33 +1,38 @@
 {
-  // v.3 2024-02-16
+  // v.3.1 2024-02-17
   // Thorn Duke
+  // documentation: https://code.visualstudio.com/docs/editor/userdefinedsnippets
   "Initialize CHANGELOG.md": {
     "scope": "markdown",
     "prefix": "changelog-init",
     "body": [
       "# Change Log",
       "",
-      "<!--",
+      "$BLOCK_COMMENT_START",
       "## [Unreleased] | [major.minor.patch] - yyyy-mm-dd",
       "### Added | Fixed | Changed | Removed | Deprecated | Security",
       "- filename {section}: description",
-      "-->",
+      "$BLOCK_COMMENT_END",
       "",
-      "$0"
+      "$0",
     ],
-    "description": "Initialize a CHANGELOG.md"
+    "description": "Initialize a CHANGELOG.md",
   },
   "Unreleased Header": {
     "scope": "markdown",
     "prefix": "changelog-unreleased-header",
     "body": ["## [Unreleased]", "", "$0"],
-    "description": "Insert the `Unreleased` header"
+    "description": "Insert the `Unreleased` header",
   },
   "Header": {
     "scope": "markdown",
     "prefix": "changelog-header",
-    "body": ["### ${1|Added,Fixed,Changed,Removed,Deprecated,Security|}", "", "$0"],
-    "description": "Insert a header"
+    "body": [
+      "### ${1|Added,Fixed,Changed,Removed,Deprecated,Security|}",
+      "",
+      "$0",
+    ],
+    "description": "Insert a header",
   },
   "Released Header": {
     "scope": "markdown",
@@ -35,15 +40,17 @@
     "body": [
       "## [${1:major}.${2:minor}.${3:patch}] - ${4:${CURRENT_YEAR}}-${5:${CURRENT_MONTH}}-${6:${CURRENT_DATE}}",
       "",
-      "$0"
+      "$0",
     ],
-    "description": "Insert a release header"
+    "description": "Insert a release header",
   },
   "New Log Item": {
     "scope": "markdown",
     "prefix": "changelog-new-item",
-    "body": ["- ${1:filename}${2: {${3:section}\\}}: ${4:description}"],
-    "description": "Insert a new log item"
+    "body": [
+      "- ${1:filename}${2: {${3:section}\\}}: ${4:description}",
+    ],
+    "description": "Insert a new log item",
   },
   "Initialize README.md": {
     "scope": "markdown",
@@ -51,7 +58,7 @@
     "body": [
       "# ${1:Extension name}",
       "",
-      "<!-- Extension description -->",
+      "${2:$BLOCK_COMMENT_START Extension description $BLOCK_COMMENT_END}$0",
       "",
       "## Features",
       "",
@@ -70,8 +77,8 @@
       "## Contributing",
       "",
       "## Acknowledgements",
-      ""
-    ]
+      "",
+    ],
   },
   "Code file header": {
     "scope": "javascript, typescript",
@@ -84,7 +91,7 @@
       " *",
       " * First edit: ${3:${CURRENT_YEAR}}-${4:${CURRENT_MONTH}}-${5:${CURRENT_DATE}}",
       " */",
-      "$0"
-    ]
-  }
+      "$0",
+    ],
+  },
 }

@@ -1,18 +1,21 @@
 {
   "name": "pwgen",
   "version": "1.0.0",
-  "description": "A strong password generator for Node",
+  "description": "A strong password generator for use on the CLI, in a custom component, or as a Node module.",
   "main": "index.js",
+  "type": "module",
   "keywords": [
+    "pwdgen",
     "password",
     "passwords",
     "security",
     "AES",
     "generators",
+    "password generator",
     "ES6"
   ],
   "scripts": {
-    "test": "test",
+    "test": "node tests.js",
     "lint": "eslint . --ext js --report-unused-disable-directives --max-warnings 0"
   },
   "author": "Thorn Duke",
