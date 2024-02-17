@@ -25,3 +25,4 @@
 - td-tests.js: renamed as `scopeo.js`
 - index.js {defaults}: renamed some attributes
 - tests.js: modified the tests with the `from` method
+- scopeo.js: use `chalk` to colorize the logs

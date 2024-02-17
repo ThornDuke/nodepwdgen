@@ -1,6 +1,6 @@
-const cl = (value) => {
-  console.log(value);
-};
+import chalk from 'chalk';
+
+const log = console.log;
 
 const should = (str) => {
   return `: Should ${str}`;
@@ -12,7 +12,7 @@ const from = (...args) => {
 
 const title = (str) => {
   const line = '---------------------------------------------';
-  cl(`${line}\n# ${str}\n${line}`);
+  log(chalk.magentaBright(`\n${line}\n# ${chalk.bold(str)}\n${line}`));
 };
 
 const test = (title, from, description, callback) => {
@@ -23,13 +23,17 @@ const test = (title, from, description, callback) => {
       : from.toString().slice(1, -1);
   const currParams = `\n: From ${currParamsStr}`;
   const currDescription = `\n${description}`;
-  const result = callback(...from);
+  const output = callback(...from);
 
-  cl(`${currTitle}${currParams}${currDescription}\n> ${result}`);
+  const result =
+    chalk.cyanBright(currTitle + currParams + currDescription + '\n> ') +
+    chalk.white(output);
+
+  log(result);
 };
 
 const end = () => {
-  cl('\n\n\n');
+  log(chalk.magentaBright(`\nend of tests --------------------------------\n`));
 };
 
 export { should, title, test, from, end };

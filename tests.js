@@ -6,7 +6,7 @@ title('pwdgen test suite');
 test(
   'Function randomInt()',
   from(1, 100),
-  should('return a random integer number => 1 and =< 100'),
+  should('return a random integer number >= 1 and <= 100'),
   main.randomInt,
 );
 
